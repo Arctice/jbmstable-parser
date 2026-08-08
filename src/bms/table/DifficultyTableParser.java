@@ -240,7 +240,7 @@ public class DifficultyTableParser {
 		dt.setHeadURL(jsonheader.toExternalForm());
 	}
 
-	private DifficultyTable decodeJSONTableHeader(DifficultyTable dt, Map<String, Object> result) throws IOException {
+	public DifficultyTable decodeJSONTableHeader(DifficultyTable dt, Map<String, Object> result) throws IOException {
 		dt.setValues(result);
 		// level_order処理
 		Object dataurl = result.get("data_url");
@@ -365,7 +365,7 @@ public class DifficultyTableParser {
 		this.decodeJSONTableData(dt, mapper.readValue(jsondata, List.class), false);
 	}
 
-	private void decodeJSONTableData(DifficultyTable dt, List<Map<String, Object>> result, boolean accept) {
+	public void decodeJSONTableData(DifficultyTable dt, List<Map<String, Object>> result, boolean accept) {
 		dt.removeAllElements();
 		List<String> levelorder = new ArrayList<String>();
 		for (Map<String, Object> m : result) {
